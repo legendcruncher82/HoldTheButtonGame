@@ -1,0 +1,64 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.b {
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+#dalle2,#button {
+    text-decoration: none;
+    color: #000;
+    font-size: 30px;
+    display: block;
+    padding-bottom: 30px;
+}
+
+.b:hover {
+    transform: scale(1.10);
+    transform: translateY(-7px);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+}
+
+.github {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 70px;
+    z-index: 1;
+}
+
+/* on mobile, a is 95vw */
+@media screen and (max-width: 600px) {
+    .b {
+        width: 93%;
+    }
+    /* turn off transitions */
+    .b:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    /* github logo is on the bottom of the screen */
+    .github {
+        z-index: 0;
+        position: relative;
+    }
+}
+
+/* if min height 750px and its a phone, github is absolute 0 from bottom */
+@media screen and (min-height: 750px) and (max-width: 600px) {
+    .github {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
