@@ -1,3 +1,5 @@
+/* v1.1 */
+
 body {
     font-family: 'Inter', sans-serif;
     text-align: center;
@@ -10,11 +12,21 @@ h1 {
     top: 15px;
 }
 
-#main {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* if 16" or larger, center #main on xy with position: absolute */
+@media screen and (min-width: 1537px) {
+    #main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* if less than 16", #main is margin top 40px */
+@media screen and (max-width: 1536px) {
+    #main {
+        margin-top: 40px;
+    }
 }
 
 h2 {
@@ -48,11 +60,11 @@ h2 {
 }
 
 .loading {
-    width: 40px;
-    /* make it spin */
+    /* width: 40px */
+    width: 50px;
     animation: spin 0.8s linear infinite;
-    display: none;
-    /* center horizontally */
+    -webkit-animation: spin 0.8s linear infinite;
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
@@ -139,13 +151,14 @@ body {
         background-color: lightgreen;
     }
     #main {
-        height: 90%;
-        top: 50%;
+        height: 99%;
+        position: absolute;
+        margin-top: 15px;
     }
 }
 
 /* 10" desktop monitor */
-@media screen and (max-height: 650px) {
+@media screen and (max-height: 770px) and (max-width: 1025px) {
     h1 {
         top: 45px;
         margin-top: -50px;
@@ -156,42 +169,9 @@ body {
     }
     #main {
         width: 95vw;
+        margin: 50px auto 0 auto;
     }
     .guide {
         font-size: 20px;
     }
-}
-
-::-webkit-scrollbar {
-  width: 13px;
-  height: 13px;
-}
-::-webkit-scrollbar-button {
-  width: 0px;
-  height: 0px;
-}
-::-webkit-scrollbar-thumb {
-  background: #b0b0b0;
-  border: 0px none #ffffff;
-  border-radius: 8px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #808080;
-}
-::-webkit-scrollbar-thumb:active {
-  background: #6e6e6e;
-}
-::-webkit-scrollbar-track {
-  background: #ffffff;
-  border: 0px none #ffffff;
-  border-radius: 8px;
-}
-::-webkit-scrollbar-track:hover {
-  background: #ffffff;
-}
-::-webkit-scrollbar-track:active {
-  background: #ffffff;
-}
-::-webkit-scrollbar-corner {
-  background: transparent;
 }
